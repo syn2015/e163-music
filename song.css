@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::before, *::after{
+    box-sizing: border-box;
+}
+
+@keyframes circle {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+.page {
+    width: 100vw;
+    background: transparent no-repeat center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+}
+.disc-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.disc-container .needle {
+    width: 26vw;
+    height: 37vw;
+    z-index: 1;
+    margin-left: 13vw;
+}
+.disc{
+    position: relative;
+    margin-top: -5vw;
+
+}
+.disc .icons-wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+}
+.disc .icon {
+    width: 15vw;
+    height: 15vw;
+    fill: white;
+}
+.disc .icon-pause{
+    display: none;
+}
+.disc .icon-play{
+    display: inline-block;
+}
+.disc.active .icon-play {
+    display: none;
+}
+.disc.active .icon-pause{
+    display: inline-block;
+}
+
+
+.disc .ring{
+    width: 79vw;
+    height: 79vw;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+.disc .light {
+    width: 79vw;
+    height: 79vw;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.disc .cover {
+    width: 51vw;
+    height:51vw;
+    border-radius: 50%;
+    animation: circle 10s infinite linear;
+    animation-play-state: paused;
+}
+
+.disc.active .cover{
+    animation-play-state: running;
+}
+.song-desc{
+    text-align: center;
+    margin-top: 15vw;
+    height: 24vw;
+    overflow: hidden;
+}
+.song-desc .name{
+    color: white;
+}
+.song-desc>h3 {
+    font-size: 4.5vw;
+    color: gray;
+    padding: 1vw 0;
+    line-height: 6vw;
+}
+.song-desc .lyric{
+    height: 18vw;
+    overflow: hidden;
+}
+.song-desc .lines{
+    transition: transform .3s;
+
+}
+.song-desc .lines>p{
+    color: gray;
+    font-size: 1em;
+    height: 6vw;
+    line-height: 6vw;
+}
+.song-desc .lines>p.active{
+    color: white;
+}
+
+.links{
+    position: absolute;
+    bottom: 2vh;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    padding-bottom: 5vw;
+}
+.links>a {
+    display: inline-block;
+    width: 45vw;
+    text-align: center;
+    border: 1px solid #d33a31;
+    text-decoration: none;
+    letter-spacing: 8px;
+    font-size: 5vw;
+    border-radius: 8.5vw;
+    padding: 1vw 0;
+    color: #d33a31;
+}
+.links>a:last-child{
+    color: white;
+    background: #d33a31;
+}
